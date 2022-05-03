@@ -1,6 +1,8 @@
 const parkingLot = require("../services/db/schema/schema.parkingLot");
 const vehiclesParked = require("../services/db/schema/schema.vehiclesParked");
+
 module.exports = {
+  /* POST Insert parking lot */
   park: async (req) => {
     try {
       const parkingData = await parkingLot.findOne({ code: req.body.code });
@@ -45,6 +47,8 @@ module.exports = {
       };
     }
   },
+
+  /* POST Insert parking lot */
   exit: async (req) => {
     try {
       const vehicleParkData = await vehiclesParked.findOne({
@@ -71,8 +75,10 @@ module.exports = {
           Object.keys(parkingForVehicle.rateCard).forEach((key, idx) => {
             const hoursRate = key.split("-");
             if (
-              (hours >= parseInt(hoursRate[0]) && hours <  parseInt(hoursRate[1])) ||
-              (Object.keys(parkingForVehicle.rateCard).length - 1 === idx && amount === 0)
+              (hours >= parseInt(hoursRate[0]) &&
+                hours < parseInt(hoursRate[1])) ||
+              (Object.keys(parkingForVehicle.rateCard).length - 1 === idx &&
+                amount === 0)
             ) {
               amount = parkingForVehicle.rateCard[key];
             }
@@ -110,6 +116,8 @@ module.exports = {
       };
     }
   },
+
+  /* GET parking lots list. */
   getHistoryOfVehicle: async (req) => {
     try {
       const parkingData = await vehiclesParked.find({

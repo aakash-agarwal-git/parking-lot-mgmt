@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "1d484f7f-68c7-4e5f-a16d-884219982cfd",
+		"name": "Parking-mgmt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Parking Lots",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"area\": \"a\",\r\n        \"code\": \"a\",\r\n        \"name\": \"a\",\r\n        \"parkingFor\": [\r\n        {\r\n            \"type\": \"suv\",\r\n            \"capacity\": 100,\r\n            \"rateCard\": {\r\n                \"0-2\": 20,\r\n                \"2-4\": 40,\r\n                \"4-6\": 60,\r\n                \"6-8\": 80,\r\n                \"8-24\": 200\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/parking",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"parking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Park Vehicle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"area\": \"a\",\r\n        \"code\": \"a\",\r\n        \"type\": \"suv\",\r\n        \"vehicleNumber\": \"DL123\"\r\n        \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/park",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"park"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exit Vehicle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n        \"code\": \"a\",\r\n        \"vehicleNumber\": \"DL123\"\r\n        \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/park/exit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"park",
+						"exit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Parking Lots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/parking",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"parking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Parking History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/park?vehicleNumber=DL123",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"park"
+					],
+					"query": [
+						{
+							"key": "vehicleNumber",
+							"value": "DL123"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
