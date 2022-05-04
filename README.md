@@ -19,10 +19,10 @@ Port is a const in www file
 ### ENV for running on local
 
 Create '.env' file and add
-MONGO_USER =  Mongo DB user name
-MONGO_PASS = Mongo DB user password
-MONGO_DATABASE = Mongo DB database to be used
-We are using Mongoose ORM to intearct with MongoDB Atlas
+1.  MONGO_USER =  Mongo DB user name
+2.  MONGO_PASS = Mongo DB user password
+3.  MONGO_DATABASE = Mongo DB database to be used
+4.  We are using Mongoose ORM to intearct with MongoDB Atlas
 
 #To run APIs
 Please import the postman collection JSON via the name of Parking-mgmt.postman_collection.json
